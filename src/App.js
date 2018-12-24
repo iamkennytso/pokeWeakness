@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 
 import SearchBar from './components/SearchBar/SearchBar'
+import SelectedPokemon from './components/SelectedPokemon/SelectedPokemon'
+import History from './components/History/History'
 
 const INITIAL_STATE = {
   selectedPokemon: {
@@ -27,26 +29,32 @@ class App extends Component {
   */
   _handleSelectedChange = selectedPokemon => {
     this.setState({selectedPokemon});
+    let history = localStorage.getItem('history') 
+      ? localStorage.getItem('history').split(',') 
+      : [];
+    if (history.length < 10) {
+      history.push(selectedPokemon.value);
+    } else {
+      history.pop();
+      history.push(selectedPokemon.value);
+    }
+    localStorage.setItem('history', history);
   }
 
   render() {
     const { selectedPokemon } = this.state;
-    const imgUrl = selectedPokemon.value
-      // for the Alolans 
-      .replace(/\s\(alo\)/, '-alolan')
-      // for Mr. Mime
-      .replace(/.\s/, '-')
-      // for Farfetch'd
-      .replace(/'/, '');
+
     return (
       <div className="App">
         <SearchBar 
           selectedPokemon={selectedPokemon}
           handleChange={this._handleSelectedChange}
         />
-        <img 
-          src={`https://img.pokemondb.net/artwork/large/${imgUrl}.jpg`} 
-          alt={`${selectedPokemon}`}
+        <SelectedPokemon 
+          selectedPokemon={selectedPokemon}
+        />
+        <History 
+          history={localStorage.getItem('history')}
         />
       </div>
     );

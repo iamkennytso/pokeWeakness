@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Select from 'react-select';
 import Pokemon from '../../constants/pokemon'
 import './SearchBar.scss';
