@@ -1,9 +1,9 @@
 import React from 'react';
 import Select from 'react-select';
-import Pokemon from '../../constants/pokemon'
+import POKEMON from '../../constants/pokemon'
 import './SearchBar.scss';
 
-const options = Object.keys(Pokemon).map(poke => {
+const options = Object.keys(POKEMON).map(poke => {
   return {
     value: poke.toLowerCase(),
     label: poke,

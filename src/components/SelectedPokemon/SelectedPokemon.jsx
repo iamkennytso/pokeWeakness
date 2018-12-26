@@ -1,7 +1,9 @@
 import React from 'react';
 import './SelectedPokemon.scss';
 
-const SelectedPokemon = ({ selectedPokemon }) => {
+import TypeChip from '../TypeChip/TypeChip'
+
+const SelectedPokemon = ({ selectedPokemon, selectedPokemonWeaknesses }) => {
   const imgUrl = selectedPokemon.value
     // for the Alolans 
     .replace(/\s\(alo\)/, '-alolan')
@@ -15,8 +17,17 @@ const SelectedPokemon = ({ selectedPokemon }) => {
       <img 
         className="SelectedPokemon-Image"
         src={`https://img.pokemondb.net/artwork/large/${imgUrl}.jpg`} 
-        alt={`${selectedPokemon}`}
+        alt={`${selectedPokemon.label}`}
       />
+      <div className="Weaknesses">
+        {Object.keys(selectedPokemonWeaknesses).map(type => {
+          return <TypeChip
+            key={type}
+            type={type}
+            effectiveness={selectedPokemonWeaknesses[type]}
+          />
+        })}
+      </div>
     </div>
   );
 };

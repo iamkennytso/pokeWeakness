@@ -1,0 +1,17 @@
+.Weakness-Chip{
+  &-Quadruple {
+    order: -2;
+  }
+  &-Double {
+    order: -1;
+  }
+  &-Half {
+    order: 1;
+  }
+  &-Quarter {
+    order: 2;
+  }
+  &-NoEffect {
+    order: 3;
+  }
+}
