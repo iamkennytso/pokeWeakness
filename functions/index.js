@@ -1,18 +1,18 @@
 const functions = require('firebase-functions');
 
-exports.findWeaknesses = functions.https.onCall((data, context) => {
-  const pokemon = data.pokemon;
-  if (!pokemon.type2) {
-    return weaknesses[pokemon.type1];
+exports.findWeaknesses = functions.https.onCall(data => {
+  const types = data.pokemonTypes;
+  if (!types.type2) {
+    return weaknesses[types.type1];
   } else {
     // spread operator doesn't work currently with firebase cloud functions
-    const hybrid = Object.assign({}, weaknesses[pokemon.type1]);
-    const secondType = weaknesses[pokemon.type2];
-    for (let type in secondType) {
-      if (hybrid[type]) {
-        hybrid[type] = hybrid[type] * secondType[type];
+    const hybrid = Object.assign({}, weaknesses[types.type1]);
+    const secondTypeWeaknesses = weaknesses[types.type2];
+    for (let weakType in secondTypeWeaknesses) {
+      if (hybrid[weakType]) {
+        hybrid[weakType] = hybrid[weakType] * secondTypeWeaknesses[weakType];
       } else {
-        hybrid[type] = secondType[type];
+        hybrid[weakType] = secondTypeWeaknesses[weakType];
       }
     }
     return hybrid;
