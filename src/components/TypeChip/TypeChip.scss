@@ -4,12 +4,21 @@
   }
   &-Double {
     order: -1;
+    &-Img {
+      height: 75%;
+    }
   }
   &-Half {
     order: 1;
+    &-Img{
+      height: 50%;
+    }
   }
   &-Quarter {
     order: 2;
+    &-Img{
+      height: 25%;
+    }
   }
   &-NoEffect {
     order: 3;
