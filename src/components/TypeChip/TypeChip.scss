@@ -1,26 +1,45 @@
 .Weakness-Chip{
+  display: flex;
+  flex-direction: column;
+  &-Img {
+    width: auto;
+    border-radius: 100%;
+    border: 2px solid black;
+  }
   &-Quadruple {
     order: -2;
+    display: flex;
+    flex-direction: column;
+    &-Img {
+      background-color: lawngreen
+    }
   }
   &-Double {
     order: -1;
     &-Img {
       height: 75%;
+      background-color: green;
     }
   }
   &-Half {
     order: 1;
     &-Img{
       height: 50%;
+      background-color: red;
     }
   }
   &-Quarter {
     order: 2;
     &-Img{
       height: 25%;
+      background-color: maroon;
     }
   }
   &-NoEffect {
     order: 3;
+    filter: grayscale(100%);
+    &-Img{
+      background-color: firebrick;
+    }
   }
 }

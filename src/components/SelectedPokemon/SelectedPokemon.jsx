@@ -16,7 +16,7 @@ const SelectedPokemon = ({ selectedPokemon, selectedPokemonWeaknesses }) => {
     <div className="SelectedPokemon">
       <img 
         className="SelectedPokemon-Image"
-        src={`https://img.pokemondb.net/artwork/large/${imgUrl}.jpg`} 
+        // src={`https://img.pokemondb.net/artwork/large/${imgUrl}.jpg`} 
         alt={`${selectedPokemon.label}`}
       />
       <div className="Weaknesses">
