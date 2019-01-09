@@ -1,6 +1,12 @@
-.Weaknesses {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+.SelectedPokemon {
+  &-Image {
+    max-width: 65%;
+    height: auto;
+  }
+  &-Weaknesses {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
 }

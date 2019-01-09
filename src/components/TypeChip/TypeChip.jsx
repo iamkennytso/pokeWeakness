@@ -70,10 +70,10 @@ const getPicture = type => {
 
 const TypeChip = ({ type, effectiveness }) => {
   return effectiveness !== 1
-    ? <div className={`Weakness-Chip-${multiplierToString[effectiveness]} Weakness-Chip`}>
+    ? <div className={`Weakness-Chip Weakness-Chip-${multiplierToString[effectiveness]}`}>
       {type}
       <img
-        className={`Weakness-Chip-${multiplierToString[effectiveness]}-Img Weakness-Chip-Img`}
+        className={`Weakness-Chip-Img Weakness-Chip-${multiplierToString[effectiveness]}-Img`}
         src={getPicture(type)}
         alt={`${type}`}
       />

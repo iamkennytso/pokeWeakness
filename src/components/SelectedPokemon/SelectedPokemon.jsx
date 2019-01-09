@@ -5,7 +5,7 @@ import TypeChip from '../TypeChip/TypeChip'
 
 const SelectedPokemon = ({ selectedPokemon, selectedPokemonWeaknesses }) => {
   const imgUrl = selectedPokemon.value
-    // for the Alolans 
+    // for the Alolans
     .replace(/\s\(alo\)/, '-alolan')
     // for Mr. Mime
     .replace(/.\s/, '-')
@@ -14,12 +14,12 @@ const SelectedPokemon = ({ selectedPokemon, selectedPokemonWeaknesses }) => {
 
   return (
     <div className="SelectedPokemon">
-      <img 
+      <img
         className="SelectedPokemon-Image"
-        // src={`https://img.pokemondb.net/artwork/large/${imgUrl}.jpg`} 
+        src={`https://img.pokemondb.net/artwork/large/${imgUrl}.jpg`} 
         alt={`${selectedPokemon.label}`}
       />
-      <div className="Weaknesses">
+      <div className="SelectedPokemon-Weaknesses">
         {Object.keys(selectedPokemonWeaknesses).map(type => {
           return <TypeChip
             key={type}
